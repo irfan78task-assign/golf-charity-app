@@ -1,0 +1,15 @@
+/* Verify Info */
+.verify-info {
+  background-color: #374151;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #d1d5db;
+  text-align: center;
+}
+
+.verify-info strong {
+  color: #60a5fa;
+  word-break: break-all;
+}
