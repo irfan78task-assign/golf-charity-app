@@ -6,7 +6,6 @@ import Signup from './Signup';
 
 function App() {
   const [currentView, setCurrentView] = useState('login');
-  const [user, setUser] = useState(null);
   const [score, setScore] = useState('');
   const [selectedCharity, setSelectedCharity] = useState('Red Cross');
   const [scoresList, setScoresList] = useState([]);
@@ -18,7 +17,6 @@ function App() {
     const checkUser = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session?.user) {
-        setUser(session.user);
         setCurrentView('app');
       }
     };
@@ -28,10 +26,8 @@ function App() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         if (session?.user) {
-          setUser(session.user);
           setCurrentView('app');
         } else {
-          setUser(null);
           setCurrentView('login');
         }
       }
